@@ -1,0 +1,30 @@
+:root{
+    --color-principal: #18442f;
+    --color-secundario: #2fda8d;
+    --color-fondo-claro: #fcfcfc;
+    --color-borde: #0c2217;
+
+    --font: Verdana, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--color-fondo-claro);
+    color: var(--color-borde);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
