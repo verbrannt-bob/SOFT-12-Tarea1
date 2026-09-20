@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-principal: #18442f;
     --color-secundario: #2fda8d;
     --color-claro: #fcfcfc;
@@ -7,7 +7,9 @@
     --font: Verdana, sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -34,9 +36,70 @@ img {
     background-color: var(--color-principal);
     color: var(--color-claro);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 5px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
     padding: 1rem;
+}
+
+.encabezado h1 {
+    font-size: 1.3rem;
+    flex-shrink: 1;
+}
+
+.encabezado-info {
+    margin-top: auto;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: right;
+    position: relative;
+    left: -3.5rem;
+    margin-right: -3.5rem;
+    font-size: 0.9rem;
+    flex-shrink: 1;
+}
+
+@media (min-width: 48rem) {
+    .encabezado {
+        justify-content: space-between;
+    }
+
+    .encabezado h1 {
+        font-size: 1.8rem;
+        margin-top: auto;
+    }
+
+    .encabezado-info {
+        font-size: 1rem;
+        position: static;
+        margin-right: 0;
+    }
+
+    h1 br {
+        display: none;
+    }
+
+}
+
+@media (min-width: 64rem) {
+    .encabezado {
+        justify-content: space-between;
+    }
+
+    .encabezado h1 {
+        font-size: 2.3rem;
+        margin-top: auto;
+    }
+
+    .encabezado-info {
+        font-size: 1.3rem;
+        position: static;
+        margin-right: 0;
+    }
+
+    h1 br {
+        display: none;
+    }
+
 }
