@@ -6,6 +6,7 @@
     --color-activo: #6cff4f;
     --color-inactivo: #ff6161;
     --color-alerta: var(--color-inactivo);
+    --color-labels: #59805c;
 
     --font: Verdana, sans-serif;
 }
@@ -74,7 +75,7 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     list-style-type: none;
-    /* gap: 0.3rem; */
+    margin-bottom: 1rem;
 }
 
 .nav-menu li {
@@ -122,7 +123,7 @@ section {
 
 .equipos-resumen {
     display: grid;
-    grid-template-columns: 10fr 1fr 1fr;
+    grid-template-columns: 10fr 1fr 1fr 1fr;
     gap: 0.3rem;
 }
 
@@ -224,8 +225,34 @@ section {
     padding: 0.5rem;
 }
 .misiones span {
-    color: var(--color-principal);
+    color: var(--color-labels);
 }
+
+.equipos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.equipos h2 {
+    text-align: center;
+}
+
+.equipos h3 {
+    color: var(--color-secundario);
+}
+
+.equipos article {
+    border: var(--color-borde) 1px solid;
+    border-radius: 5px;
+    margin: 0 1vw;
+    padding: 0.5rem;
+}
+.equipos span {
+    color: var(--color-labels);
+}
+
+
 
 @media (min-width: 48rem) {
     .encabezado {
