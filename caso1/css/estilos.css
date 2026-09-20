@@ -1,8 +1,11 @@
 :root {
     --color-principal: #18442f;
-    --color-secundario: #c6f7e1;
+    --color-secundario: #57bd60;
     --color-claro: #fcfcfc;
     --color-borde: #0c2217;
+    --color-activo: #6cff4f;
+    --color-inactivo: #ff6161;
+    --color-alerta: var(--color-inactivo);
 
     --font: Verdana, sans-serif;
 }
@@ -78,7 +81,7 @@ img {
     font-size: 1rem;
 }
 
-.nav-menu li a{
+.nav-menu li a {
     text-decoration: none;
     color: var(--color-principal);
 }
@@ -88,22 +91,24 @@ img {
     grid-template-columns: 4fr 3fr;
     grid-template-rows: 2rem 1fr 1fr;
     gap: 0.3rem;
+    margin: 0 1vw;
 
-    grid-template-areas: 
-    "titulo titulo"
-    "equipos misiones"
-    "alerta tortugas"
+    grid-template-areas:
+        "titulo titulo"
+        "alerta equipos"
+        "misiones tortugas"
     ;
 }
 
-.resumen-operaciones h2{
+.resumen-operaciones h2 {
     grid-area: titulo;
     text-align: center;
     font-size: 1.5rem;
 }
 
-.tarjeta{
+.tarjeta {
     border: var(--color-borde) 1px solid;
+    border-radius: 5px;
     background-color: var(--color-claro);
     padding: 1rem;
     display: flex;
@@ -111,23 +116,86 @@ img {
     align-items: center;
 }
 
-.equipos-activos {
-    grid-area: equipos;
-}
-.equipos-activos span{
-    border: var(--color-borde) 1px solid;
+.equipos-resumen {
+    display: grid;
+    grid-template-columns: 10fr 1fr 1fr;
+    gap: 0.3rem;
 }
 
-.misiones-completadas{
-    grid-area: misiones;
+.equipos-activos {
+    border: var(--color-activo) 1px solid;
+    border-radius: 4px;
+    color: var(--color-activo);
+    padding: 0.3rem;
+    text-align: center;
 }
+
+.equipos-inactivos {
+    border: var(--color-inactivo) 1px solid;
+    border-radius: 4px;
+    color: var(--color-inactivo);
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.misiones-completadas {
+    grid-area: misiones;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.misiones-completadas p {
+    flex-grow: 0;
+}
+
+.barra-externa {
+    flex: 1 0 auto;
+    display: flex;
+    border: var(--color-borde) 1px solid;
+    border-radius: 5px;
+}
+
+.barra-vacia {
+    flex: 41 0 82px;
+}
+
+.barra-llena {
+    flex: 25 0 50px;
+    background-color: var(--color-secundario);
+    display: flex;
+    justify-content: center;
+}
+
+.barra-llena {
+    font-size: 0.8rem;
+}
+
+
 
 .ultima-alerta {
     grid-area: alerta;
+    display: grid;
+    position: relative;
+    border-color: var(--color-alerta);
 }
 
-.tortugas-rescatadas{
+.alerta-icon {
+    color: var(--color-alerta);
+    font-size: 1.8rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.tortugas-rescatadas {
     grid-area: tortugas;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.tortugas-rescatadas span {
+    color: var(--color-secundario);
+    font-size: 3rem;
 }
 
 @media (min-width: 48rem) {
