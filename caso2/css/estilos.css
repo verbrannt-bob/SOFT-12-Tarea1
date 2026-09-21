@@ -1,8 +1,12 @@
 :root {
-    --color-principal: #1b120b;
+    --color-principal: #2e1e13;
     --color-secundario: #2CB67D;
     --color-claro: #fffefc;
     --color-oscuro: #1B1B1F;
+    --color-translado: #5e3d25;
+    --color-horario: #208058;
+    --color-cancelacion: #b91c1c;
+    --color-cancelacion-fondo: #fff1f2;
 
     --font: 'Courier New', monospace;
 }
@@ -39,6 +43,9 @@ img {
     background-color: var(--color-claro);
     border-bottom: var(--color-principal) 1px solid;
     padding: 0 10vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .encabezado h1 {
@@ -165,15 +172,91 @@ img {
     color: var(--color-secundario);
 }
 
+.cambios {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.cambios h2 {
+    margin-top: 0;
+    color: var(--color-principal);
+}
+
+.aviso {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: var(--color-oscuro) 1px solid;
+    border-left: 6px solid;
+    background-color: var(--color-claro);
+}
+
+.aviso h3 {
+    margin-top: 0;
+}
+
+.aviso p {
+    margin-bottom: 0.75rem;
+}
+
+.aviso-traslado {
+    border-left-color: var(--color-translado);
+}
+
+.aviso-horario {
+    border-left-color: var(--color-horario);
+}
+
+.aviso-cancelacion {
+    border-left-color: var(--color-cancelacion);
+    background-color: var(--color-cancelacion-fondo);
+}
+
+.aviso-cancelacion h3 {
+    color: var(--color-cancelacion);
+}
+
+.cambios .etiqueta {
+    font-weight: bold;
+}
+
+
+.servicios h2{
+    color: var(--color-principal);
+}
+
+.servicios div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1rem;
+}
+
+.servicios article {
+    padding: 2rem;
+    text-align: center;
+    border: var(--color-secundario) 1px solid;
+    font-size: 1.2rem;
+}
+
+
+.servicios p {
+    font-size: 0.9rem;
+}
+.servicios .nombre-servicio {
+    font-weight: bold;
+}
+
 @media (min-width: 48rem) {
 
     main {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         grid-template-areas:
-            "ahora ahora proximamente proximamente"
-            "escenarios escenarios escenarios escenarios"
+            "ahora proximamente"
+            "escenarios escenarios"
+            "cambios cambios"
+            "servicios servicios"
         ;
     }
 
@@ -209,10 +292,35 @@ img {
 
     .escenarios h2 {
         grid-column: 1 / 3;
+        font-size: 2rem;
     }
 
     .escenarios article {
         grid-template-rows: 23px repeat(3, 36px);
+    }
+
+
+    .cambios {
+        grid-area: cambios;
+    }
+
+    .cambios .contenedor-avisos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem
+    }
+
+    .cambios article {
+        flex: 0 0 570px;
+    }
+    
+    .servicios {
+        grid-area: servicios;
+    }
+
+    .servicios div{
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
