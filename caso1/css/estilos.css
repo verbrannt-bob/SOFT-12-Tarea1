@@ -4,9 +4,14 @@
     --color-claro: #fcfcfc;
     --color-borde: #0c2217;
     --color-activo: #6cff4f;
-    --color-inactivo: #ff6161;
+    --color-inactivo: #ff2424;
     --color-alerta: var(--color-inactivo);
     --color-labels: #59805c;
+    --color-critico: var(--color-inactivo);
+    --color-alerta-media: #ff723a;
+    --color-alerta-baja: #ffaf01;
+    --color-alerta-informativa: #3ad1d6;
+    --color-fondo-alertas: #ffffff;
 
     --font: Verdana, sans-serif;
 }
@@ -27,6 +32,7 @@ body {
     font-family: var(--font);
     background-color: var(--color-claro);
     color: var(--color-borde);
+    margin-bottom: 10vh;
 }
 
 img {
@@ -69,7 +75,6 @@ section {
 }
 
 .nav-menu {
-    /* padding: 0 0.25rem; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -86,7 +91,7 @@ section {
     font-size: 1rem;
 }
 
-.nav-menu li a {
+.nav-menu a {
     text-decoration: none;
     color: var(--color-principal);
 }
@@ -94,7 +99,6 @@ section {
 .resumen-operaciones {
     display: grid;
     grid-template-columns: 4fr 3fr;
-    grid-template-rows: 2rem 1fr 1fr;
     gap: 0.3rem;
     margin: 0 1vw;
 
@@ -224,8 +228,10 @@ section {
     margin: 0 1vw;
     padding: 0.5rem;
 }
+
 .misiones span {
     color: var(--color-labels);
+    font-weight: bold;
 }
 
 .equipos {
@@ -245,16 +251,102 @@ section {
 .equipos article {
     border: var(--color-borde) 1px solid;
     border-radius: 5px;
-    margin: 0 1vw;
-    padding: 0.5rem;
-}
-.equipos span {
-    color: var(--color-labels);
+    margin: 0 1vw
 }
 
+.equipos span {
+    color: var(--color-labels);
+    font-weight: bold;
+}
+
+.alertas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.alertas h2 {
+    text-align: center;
+}
+
+.alertas article {
+    border: var(--color-borde) 1px solid;
+    border-radius: 5px;
+    margin: 0 1vw;
+    padding: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+    background-color: var(--color-fondo-alertas);
+}
+
+.alertas .critico {
+    border-color: var(--color-critico);
+}
+
+.critico span {
+    color: var(--color-critico);
+}
+
+.alertas .media {
+    border-color: var(--color-alerta-media);
+}
+
+.media span {
+    color: var(--color-alerta-media);
+}
+
+.alertas .baja {
+    border-color: var(--color-alerta-baja);
+}
+
+.baja span {
+    color: var(--color-alerta-baja)
+}
+
+.alertas .informativa {
+    border-color: var(--color-alerta-informativa);
+}
+
+.informativa span {
+    color: var(--color-alerta-informativa)
+}
+
+.actividades {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.actividades article {
+    display: grid;
+    grid-template-columns: 90px 60px 2fr 1fr;
+    gap: 0.1rem;
+}
+
+.actividades p {
+    border: var(--color-borde) 1px solid;
+    border-radius: 3px;
+    text-align: center;
+    padding: 0.5rem 0;
+}
 
 
 @media (min-width: 48rem) {
+    main {
+        display: grid;
+        grid-template-columns: 5fr 2fr;
+        gap: 2rem;
+        grid-template-areas:
+            "misiones resumen"
+            "equipos alertas"
+            "actividades actividades"
+        ;
+    }
+
+    section {
+        margin: 0;
+    }
+
     .encabezado {
         justify-content: space-between;
     }
@@ -274,9 +366,41 @@ section {
         display: none;
     }
 
+    .resumen-operaciones {
+        grid-area:resumen;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .resumen-operaciones article {
+        flex: 1 1 auto;
+    }
+
+    .misiones {
+        grid-area: misiones;
+    }
+
+    .equipos {
+        grid-area: equipos;
+    }
+
+    .alertas {
+        grid-area: alertas;
+    }
+
+    .actividades {
+        grid-area: actividades;
+    }
 }
 
 @media (min-width: 64rem) {
+
+    main {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
     .encabezado {
         justify-content: space-between;
     }
