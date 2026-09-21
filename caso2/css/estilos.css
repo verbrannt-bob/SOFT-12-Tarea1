@@ -31,10 +31,6 @@ img {
     display: block;
 }
 
-section {
-    margin-top: 3vh;
-}
-
 .encabezado {
     display: flex;
     flex-direction: column;
@@ -45,7 +41,7 @@ section {
     padding: 0 10vw;
 }
 
-.encabezado h1{
+.encabezado h1 {
     font-size: 2.5rem;
     color: var(--color-principal);
 }
@@ -86,11 +82,62 @@ section {
     border: none;
 }
 
-
-@media (min-width: 48rem) {
-
+.ahora {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-@media (min-width: 64rem) {
-
+.ahora h2 {
+    color: var(--color-principal);
 }
+
+.ahora article {
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    color: var(--color-claro);
+    padding: 0.5rem 1rem;
+}
+
+
+.concierto {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/concierto.avif);
+}
+
+.conferencia {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/conferencia.jpg);
+}
+
+.taller {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/taller.png);
+}
+
+.proximamente {
+    color: var(--color-claro);
+    margin-top: 2rem;
+}
+
+.proximamente h2 {
+    color: var(--color-principal);
+}
+
+.proximamente h3 {
+    color: var(--color-secundario);
+}
+
+.proximamente section {
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    color: var(--color-claro);
+}
+
+.proximamente article {
+    border-top: var(--color-claro) 1px solid;
+    padding: 0.1rem;
+}
+
+@media (min-width: 48rem) {}
+
+@media (min-width: 64rem) {}
